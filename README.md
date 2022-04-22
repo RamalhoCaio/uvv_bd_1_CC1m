@@ -1,6 +1,7 @@
 # PSET1
 #### Trabalho feito por: **Caio Ramalho de Faria**
 #### Professor: [Abrantes Araujo](https://github.com/abrantesasf)
+Esse arquiv read.me será usado para documentar todo o repositório
 
 # PROJETO:
 Foi pedido que desenvolvessemos um Banco de Dados baseado em um modelo disponibilizado usando diferentes *SGBDs* para aprender seus usos e funcionalidades
