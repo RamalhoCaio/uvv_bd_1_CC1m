@@ -1,4 +1,5 @@
 su - postgres
+
 senha: postgres
 
 createuser -dPs caio;
