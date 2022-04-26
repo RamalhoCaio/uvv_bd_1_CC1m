@@ -34,6 +34,7 @@ CREATE TABLE funcionario (
                 numero_departamento INTEGER NOT NULL,
                 CONSTRAINT cpf PRIMARY KEY (cpf)
 );
+
 COMMENT ON TABLE funcionario IS 'Tabela que armazena as informações dos funcionários.';
 COMMENT ON COLUMN funcionario.cpf IS 'CPF do funcionário. Será a PK da tabela.';
 COMMENT ON COLUMN funcionario.primeiro_nome IS 'Primeiro nome do funcionário.';
@@ -53,6 +54,7 @@ CREATE TABLE departamento (
                 data_inicio_gerente DATE,
                 CONSTRAINT numero_departamento PRIMARY KEY (numero_departamento)
 );
+
 COMMENT ON TABLE departamento IS 'Tabela que armazena as informaçoẽs dos departamentos.';
 COMMENT ON COLUMN departamento.numero_departamento IS 'Número do departamento. É a PK desta tabela.';
 COMMENT ON COLUMN departamento.nome_departamento IS 'Nome do departamento. Deve ser único.';
@@ -68,6 +70,7 @@ CREATE TABLE localizacoes_departamento (
                 local VARCHAR(15) NOT NULL,
                 CONSTRAINT local PRIMARY KEY (numero_departamento, local)
 );
+
 COMMENT ON TABLE localizacoes_departamento IS 'Tabela que armazena as possíveis localizações dos departamentos';
 COMMENT ON COLUMN localizacoes_departamento.numero_departamento IS 'Número do departamento. Faz parta da PK desta tabela e também é uma FK para a tabela departamento.';
 COMMENT ON COLUMN localizacoes_departamento.local IS 'Localização do departamento. Faz parte da PK desta tabela.';
@@ -80,6 +83,7 @@ CREATE TABLE projeto (
                 numero_departamento INTEGER NOT NULL,
                 CONSTRAINT projeto_pk PRIMARY KEY (numero_projeto)
 );
+
 COMMENT ON TABLE projeto IS 'Tabela que armazena as informações sobre os projetos dos departamentos.';
 COMMENT ON COLUMN projeto.numero_projeto IS 'Número do projeto. É a PK desta tabela.';
 COMMENT ON COLUMN projeto.nome_projeto IS 'Nome do projeto. Deve ser único.';
@@ -97,6 +101,7 @@ CREATE TABLE trabalha_em (
                 horas NUMERIC(3,1) NOT NULL,
                 CONSTRAINT cpf_funcionrio PRIMARY KEY (numero_projeto, cpf_funcionario)
 );
+
 COMMENT ON TABLE trabalha_em IS 'Tabela para armazenar quais funcionários trabalham em quais projetos.';
 COMMENT ON COLUMN trabalha_em.numero_projeto IS 'Número do projeto. Faz parte da PK desta tabela e é uma FK para a tabela projeto.';
 COMMENT ON COLUMN trabalha_em.cpf_funcionario IS 'CPF do funcionário. Faz parte da PK desta tabela e é uma FK para a tabela funcionário.';
@@ -111,12 +116,19 @@ CREATE TABLE dependente (
                 parentesco VARCHAR(15),
                 CONSTRAINT cpf_funcionario PRIMARY KEY (cpf_funcionario, nome_dependente)
 );
+
 COMMENT ON TABLE dependente IS 'Tabela que armazena as informações dos dependentes dos funcionários.';
+
 COMMENT ON COLUMN dependente.cpf_funcionario IS 'CPF do funcionário. Faz parte da PK desta tabela e é uma FK para a tabela funcionário.';
+
 COMMENT ON COLUMN dependente.nome_dependente IS 'Nome do dependente. Faz parte da PK desta tabela.';
+
 COMMENT ON COLUMN dependente.sexo IS 'Sexo do dependente.';
+
 COMMENT ON COLUMN dependente.data_nascimento IS 'Data de nascimento do dependente.';
+
 COMMENT ON COLUMN dependente.parentesco IS 'Descrição do parentesco do dependente com o funcionário.';
+
 
 
 ALTER TABLE dependente ADD CONSTRAINT funcionario_dependente_fk
