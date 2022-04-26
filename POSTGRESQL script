@@ -1,3 +1,9 @@
+su - postgres
+postgres
+
+
+/* criando seu usuario
+
 createuser -dPs caio;
 
 psql -U caio postgres;
