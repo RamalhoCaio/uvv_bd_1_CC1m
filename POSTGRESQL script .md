@@ -1,14 +1,18 @@
 su - postgres
-postgres
-
-
-/* criando seu usuario */
+senha: postgres
 
 createuser -dPs caio;
 
 psql -U caio postgres;
 
-create database uvv;
+ create database uvv
+	with
+	owner = "caio" 
+	template = template0
+	encoding = 'UTF8'
+	lc_collate = 'pt_BR.UTF-8'
+	lc_ctype = 'pt_BR.UTF-8'
+	allow_connections = true;
 
 \c uvv caio
 
