@@ -9,7 +9,7 @@ Foi pedido que desenvolvessemos um Banco de Dados baseado em um modelo disponibi
 
 
 ## MODELO:
-O diagrama do modelo base está postado na pasta [diagrama modelo](https://github.com/RamalhoCaio/uvv_bd_1_CC1m/tree/main/Diagrama%20Modelo), e apresenta um modelo do **projeto lógico** que deve ser seguido
+O diagrama do modelo base está postado na pasta [diagrama modelo](https://github.com/RamalhoCaio/uvv_bd_1_CC1m/tree/main/Diagrama%20Modelo), e apresenta um modelo do **projeto lógico** que devia ser seguido e implementado
 
 ## SGBDs:
 Foram montados os **Bancos de dados** usando o *postgresql* e o *MariaDB/MySQL*, com os scripts postados dentro dos subdiretorios nomeados
