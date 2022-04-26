@@ -14,6 +14,6 @@ O diagrama do modelo base está postado no arquivo [diagrama modelo.architect](h
 ## SGBDs:
 Foram montados os **Bancos de dados** usando o *postgresql* e o *MariaDB/MySQL*, com os scripts postados dentro dos subdiretorios nomeados
 
->[MariaDB/MySQL](https://github.com/RamalhoCaio/uvv_bd_1_CC1m/blob/main/MariaDB/Script)
+>-[MariaDB/MySQL](https://github.com/RamalhoCaio/uvv_bd_1_CC1m/blob/main/MariaDB/Script)
 >
->[PostgreSQL](https://github.com/RamalhoCaio/uvv_bd_1_CC1m/tree/main/POSTGRESQL)
+>-[PostgreSQL](https://github.com/RamalhoCaio/uvv_bd_1_CC1m/tree/main/POSTGRESQL)
