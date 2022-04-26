@@ -4,7 +4,8 @@
 Esse arquivo read.me será usado para documentar e explicar o intuito de todo esse repositório
 
 # PROJETO:
-*PSET 1* ou *problem set1*, trabalho requisitado em aula
+*PSET 1* ou *problem set1*, trabalho requisitado em aula.
+
 Foi pedido que desenvolvessemos um Banco de Dados baseado em um modelo disponibilizado usando diferentes *SGBDs* para aprender seus usos e funcionalidades
 
 
