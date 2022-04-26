@@ -1,7 +1,7 @@
 # PSET1
 #### Trabalho feito por: **Caio Ramalho de Faria**
 #### Professor: [Abrantes Araujo](https://github.com/abrantesasf)
-Esse arquivo read.me será usado para documentar todo o repositório
+Esse arquivo read.me será usado para documentar e explicar o intuito de todo esse repositório
 
 # PROJETO:
 *PSET 1* ou *problem set1*, trabalho requisitado em aula
