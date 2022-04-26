@@ -1,3 +1,24 @@
+# LOGIN DO SUPERUSUÁRIO ROOT:
+mysql -u root -p
+computacao@raiz
+
+#  CRIAR O BANCO DE DADOS:
+create database uvv
+character set UTF8mb4
+collate utf8mb4_bin;
+
+# CRIANDO USUARIO:
+create user caio identified by '123456';
+grant all privileges on uvv.* to caio;
+
+# SELECIONAR O USUARIO:
+system mysql -u caio -p
+123456
+
+# ATIVANDO O BANCO DE DADOS uvv:
+use uvv;
+
+
 
 CREATE TABLE funcionario (
                 cpf CHAR(11) NOT NULL,
