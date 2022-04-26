@@ -2,7 +2,7 @@ su - postgres
 postgres
 
 
-/* criando seu usuario
+/*criando seu usuario*/
 
 createuser -dPs caio;
 
