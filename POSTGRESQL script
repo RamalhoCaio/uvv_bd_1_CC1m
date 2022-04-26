@@ -3,6 +3,8 @@ su - postgres
 senha: postgres
 
 createuser -dPs caio;
+*senha*
+*senha*
 
 psql -U caio postgres;
 
