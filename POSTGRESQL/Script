@@ -24,6 +24,7 @@ CREATE SCHEMA elmasri;
 SET SEARCH_PATH TO elmasri, "\$user", public;
 
 
+
 CREATE TABLE elmasri.Funcionario (
                 cpf CHAR(11) NOT NULL,
                 primeiro_nome VARCHAR(15) NOT NULL,
@@ -44,7 +45,7 @@ COMMENT ON COLUMN elmasri.Funcionario.ultimo_nome IS 'Sobrenome do funcionário.
 COMMENT ON COLUMN elmasri.Funcionario.endereco IS 'Endereço do funcionário.';
 COMMENT ON COLUMN elmasri.Funcionario.sexo IS 'Sexo do funcionário.';
 COMMENT ON COLUMN elmasri.Funcionario.salario IS 'Salário do funcionário.';
-COMMENT ON COLUMN elmasri.Funcionario.cpf_supervisor IS 'CPF do supervisor. Será uma FK para a própria tabela (um auto-relacionamento).';
+COMMENT ON COLUMN elmasri.Funcionario.cpf_supervisor IS 'o-relacionamento).';
 COMMENT ON COLUMN elmasri.Funcionario.Numero_departamento IS 'Número do departamento do funcionário.';
 
 
@@ -57,7 +58,7 @@ CREATE TABLE elmasri.Dependente (
                 CONSTRAINT cpf_funcionario PRIMARY KEY (cpf_funcionario_dependente, nome_dependente)
 );
 COMMENT ON TABLE elmasri.Dependente IS 'Tabela que armazena as informações dos dependentes dos funcionários.';
-COMMENT ON COLUMN elmasri.Dependente.cpf_funcionario_dependente IS 'CPF do funcionário. Faz parte da PK desta tabela e é uma FK para a tabela funcionário.';
+COMMENT ON COLUMN elmasri.Dependente.cpf_funcionario_dependente IS 'para a tabela funcionário.';
 COMMENT ON COLUMN elmasri.Dependente.nome_dependente IS 'Nome do dependente. Faz parte da PK desta tabela.';
 COMMENT ON COLUMN elmasri.Dependente.sexo IS 'Sexo do dependente.';
 COMMENT ON COLUMN elmasri.Dependente.data_nascimento IS 'Data de nascimento do dependente.';
@@ -74,7 +75,7 @@ CREATE TABLE elmasri.Departamento (
 COMMENT ON TABLE elmasri.Departamento IS 'Tabela que armazena as informaçoẽs dos departamentos.';
 COMMENT ON COLUMN elmasri.Departamento.numero_departamento IS 'Número do departamento. É a PK desta tabela.';
 COMMENT ON COLUMN elmasri.Departamento.nome_departamento IS 'Nome do departamento. Deve ser único.';
-COMMENT ON COLUMN elmasri.Departamento.cpf_gerente IS 'CPF do gerente do departamento. É uma FK para a tabela funcionários.';
+COMMENT ON COLUMN elmasri.Departamento.cpf_gerente IS 'onários.';
 COMMENT ON COLUMN elmasri.Departamento.data_inicio_gerente IS 'Data do início do gerente no departamento.';
 
 
@@ -88,7 +89,7 @@ CREATE TABLE elmasri.localizacoes_departamento (
                 CONSTRAINT numero_departamento PRIMARY KEY (numero_departamento, local)
 );
 COMMENT ON TABLE elmasri.localizacoes_departamento IS 'Tabela que armazena as possíveis localizações dos departamentos.';
-COMMENT ON COLUMN elmasri.localizacoes_departamento.numero_departamento IS 'Número do departamento. Faz parta da PK desta tabela e também é uma FK para a tabela departamento.';
+COMMENT ON COLUMN elmasri.localizacoes_departamento.numero_departamento IS 'm é uma FK para a tabela departamento.';
 COMMENT ON COLUMN elmasri.localizacoes_departamento.local IS 'Localização do departamento. Faz parte da PK desta tabela.';
 
 
@@ -117,8 +118,8 @@ CREATE TABLE elmasri.trabalha_em (
                 CONSTRAINT cpf_funcionario PRIMARY KEY (cpf_funcionario_trabalha_em, numero_projeto)
 );
 COMMENT ON TABLE elmasri.trabalha_em IS 'Tabela para armazenar quais funcionários trabalham em quais projetos.';
-COMMENT ON COLUMN elmasri.trabalha_em.cpf_funcionario_trabalha_em IS 'CPF do funcionário. Faz parte da PK desta tabela e é uma FK para a tabela funcionário.';
-COMMENT ON COLUMN elmasri.trabalha_em.numero_projeto IS 'Número do projeto. Faz parte da PK desta tabela e é uma FK para a tabela projeto.';
+COMMENT ON COLUMN elmasri.trabalha_em.cpf_funcionario_trabalha_em IS 'para a tabela funcionário.';
+COMMENT ON COLUMN elmasri.trabalha_em.numero_projeto IS 'ara a tabela projeto.';
 COMMENT ON COLUMN elmasri.trabalha_em.horas IS 'Horas trabalhadas pelo funcionário neste projeto.';
 
 
