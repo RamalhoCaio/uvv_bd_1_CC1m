@@ -3,3 +3,10 @@
 select sum(salario), numero_departamento from elmasri.funcionario
 group by numero_departamento
 ;
+
+
+/* QUESTÃO 02: prepare um relatório que mostre a média salarial dos homens e das mulheres. */
+
+select avg(salario) as MediaSalarial, sexo from elmasri.funcionario
+group by sexo
+;
