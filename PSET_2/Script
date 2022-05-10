@@ -39,6 +39,13 @@ order by nome_departamento ASC
    /* QUESTÃO 06: prepare um relatório que mostre o nome completo dos funcionários que têm dependentes, o departamento onde eles trabalham e, para cada 
   funcionário, também liste o nome completo dos dependentes, a idade em anos de cada dependente e o sexo (o sexo NÃO DEVE aparecer como M ou F, deve aparecer 
   como “Masculino” ou “Feminino”). */
+  
+select primeiro_nome, nome_meio, ultimo_nome, f.cpf, numero_departamento, nome_dependente,
+ultimo_nome, age(current_date,d.data_nascimento) as "idade_dependente", case d.sexo when 'M' then 'masculino' when 'F' then 'feminino' end
+from elmasri.funcionario f
+inner join elmasri.dependente d
+on f.cpf = d.cpf_funcionario
+;
 
 
 
