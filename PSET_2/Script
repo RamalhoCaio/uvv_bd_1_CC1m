@@ -58,6 +58,10 @@ order by nome_departamento ASC
 
   /* QUESTÃO 10: prepare um relatório que mostre a média salarial dos funcionários de cada departamento. */
   
+  
+select avg(salario) as "MediaSalarial_Departamento", numero_departamento
+from elmasri.funcionario
+group by numero_departamento;
 
 
   /* QUESTÃO 11: considerando que o valor pago por hora trabalhada em um projeto é de 50 reais, prepare um relatório que mostre o nome completo do 
