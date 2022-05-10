@@ -53,6 +53,15 @@ order by nome_departamento ASC
 
   /* QUESTÃO 09: prepare um relatório que mostre a soma total das horas de cada projeto em cada departamento. 
   Obs.: o relatório deve exibir o nome do departamento, o nome do projeto e a soma total das horas. */
+  
+  
+select sum(horas) as "total_de_horas", p.numero_projeto
+from elmasri.trabalha_em t
+inner join elmasri.projeto p
+on t.numero_projeto = p.numero_projeto
+group by p.numero_projeto
+order by p.numero_projeto asc
+;
 
 
 
