@@ -105,4 +105,11 @@ group by nome_departamento
 /* QUESTÃO 15: como um funcionário pode estar alocado em mais de um projeto, prepare um relatório que exiba o nome completo do funcionário, o departamento 
    desse funcionário e o nome dos projetos em que cada funcionário está alocado. Atenção: se houver algum funcionário que não está alocado em nenhum projeto, 
    o nome completo e o departamento também devem aparecer no relatório. */
+   
+select primeiro_nome, nome_meio, ultimo_nome, f.numero_departamento, nome_projeto
+from elmasri.funcionario f
+inner join elmasri.projeto p
+on f.numero_departamento = p.numero_departamento
+order by f.numero_departamento asc
+;
 
