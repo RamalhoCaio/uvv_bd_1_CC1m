@@ -28,6 +28,13 @@ order by nome_departamento ASC
    /* QUESTÃO 04: prepare um relatório que mostre o nome completo dos funcionários, a idade em anos completos, o salário atual e o salário com um reajuste que 
   obedece ao seguinte critério: se o salário atual do funcionário é inferior a 35.000 oreajuste deve ser de 20%, e se o salário atual do funcionário for igual ou 
   superior a 35.000 o reajuste deve ser de 15%. */
+  
+select primeiro_nome, nome_meio, ultimo_nome, age(current_date, data_nascimento) as idade, salario,
+case 
+when (salario < 35000) then salario * 1.2
+when (salario >= 35000) then salario * 1.15
+end as salario_reajustado
+from elmasri.funcionario;
 
 
 
