@@ -40,10 +40,18 @@ from elmasri.funcionario;
 
    /* QUESTÃO 05: prepare um relatório que liste, para cada departamento, o nomedo gerente e o nome dos funcionários. Ordene esse relatório por nome do 
   departamento (em ordem crescente) e por salário dos funcionários (em ordem decrescente). */
-
-
-
-   /* QUESTÃO 06: prepare um relatório que mostre o nome completo dos funcionários que têm dependentes, o departamento onde eles trabalham e, para cada 
+  
+select d.nome_departamento departamento,
+case when d.cpf_gerente = f.cpf then primeiro_nome end gerente,
+case when d.cpf_gerente != f.cpf then primeiro_nome end funcionario, concat (f.salario) salario
+from elmasri.funcionario f
+inner join elmasri.departamento d
+on f.numero_departamento = d.numero_departamento
+order by d.nome_departamento asc, f.salario desc;
+  
+  
+  
+     /* QUESTÃO 06: prepare um relatório que mostre o nome completo dos funcionários que têm dependentes, o departamento onde eles trabalham e, para cada 
   funcionário, também liste o nome completo dos dependentes, a idade em anos de cada dependente e o sexo (o sexo NÃO DEVE aparecer como M ou F, deve aparecer 
   como “Masculino” ou “Feminino”). */
   
@@ -63,6 +71,7 @@ from elmasri.funcionario
 where exists (select * from elmasri.dependente where funcionario.cpf != dependente.cpf_funcionario);
 
 
+
   /* QUESTÃO 08: prepare um relatório que mostre, para cada departamento, os projetos desse departamento e o nome completo dos funcionários que estão 
    alocados em cada projeto. Além disso inclua o número de horas trabalhadas por cada funcionário, em cada projeto. */
    
@@ -78,7 +87,6 @@ order by primeiro_nome asc;
   /* QUESTÃO 09: prepare um relatório que mostre a soma total das horas de cada projeto em cada departamento. 
   Obs.: o relatório deve exibir o nome do departamento, o nome do projeto e a soma total das horas. */
   
-  
 select sum(horas) as "total_de_horas", p.numero_projeto
 from elmasri.trabalha_em t
 inner join elmasri.projeto p
@@ -90,11 +98,11 @@ order by p.numero_projeto asc
 
 
   /* QUESTÃO 10: prepare um relatório que mostre a média salarial dos funcionários de cada departamento. */
-  
-  
+   
 select avg(salario) as "MediaSalarial_Departamento", numero_departamento
 from elmasri.funcionario
 group by numero_departamento;
+
 
 
   /* QUESTÃO 11: considerando que o valor pago por hora trabalhada em um projeto é de 50 reais, prepare um relatório que mostre o nome completo do 
