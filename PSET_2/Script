@@ -108,11 +108,29 @@ group by numero_departamento;
   /* QUESTÃO 11: considerando que o valor pago por hora trabalhada em um projeto é de 50 reais, prepare um relatório que mostre o nome completo do 
    funcionário, o nome do projeto e o valor total que o funcionário receberá referente às horas trabalhadas naquele projeto. */
 
+select primeiro_nome, nome_meio, ultimo_nome, p.nome_projeto projeto,
+case when t.horas > 0 then concat(t.horas * 50) end total_recebido
+from elmasri.funcionario f
+inner join elmasri.trabalha_em t
+on f.cpf = t.cpf_funcionario
+inner join elmasri.projeto p
+on t.numero_projeto = p.numero_projeto;
+
 
 
   /* QUESTÃO 12: seu chefe está verificando as horas trabalhadas pelos funcionários nos projetos e percebeu que alguns funcionários, mesmo estando 
    alocadas à algum projeto, não registraram nenhuma hora trabalhada. Sua tarefa é preparar um relatório que liste o nome do departamento, o nome 
    do projeto e o nome dos funcionários que, mesmo estando alocados a algum projeto, não registraram nenhuma hora trabalhada. */
+
+select d.nome_departamento departamento, p.nome_projeto projeto, f.primeiro_nome funcionario, concat(t.horas) horas_de_trabalho
+from elmasri.funcionario f 
+inner join elmasri.departamento d
+on f.numero_departamento = d.numero_departamento
+inner join elmasri.projeto p
+on d.numero_departamento = p.numero_departamento
+inner join elmasri.trabalha_em t
+on p.numero_projeto = t.numero_projeto
+where t.horas != 0;
 
 
 
@@ -120,6 +138,12 @@ group by numero_departamento;
    cada funcionário e um presente para cada dependente de cada funcionário) e pediu para que você preparasse um relatório que listasse o nome completo
    das pessoas a serem presenteadas (funcionários e dependentes), o sexo e a idade em anos completos (para poder comprar um presente adequado). Esse 
    relatório deve estar ordenado pela idade em anos completos, de forma decrescente. */
+
+select concat(f.primeiro_nome, ' ', f.nome_meio, ' ', f.ultimo_nome) nome_funcionario, age(current_date, f.data_nascimento) idade_funcionario, f.sexo sexo_funcionario,
+concat(d.nome_dependente, ' ', f.ultimo_nome) nome_dependente, age(current_date, d.data_nascimento) idade_dependente, d.sexo sexo_dependente 
+from elmasri.funcionario f, elmasri.dependente d
+where f.cpf = d.cpf_funcionario
+order by f.data_nascimento asc, d.data_nascimento asc;
 
 
 
@@ -138,7 +162,7 @@ group by nome_departamento
    desse funcionário e o nome dos projetos em que cada funcionário está alocado. Atenção: se houver algum funcionário que não está alocado em nenhum projeto, 
    o nome completo e o departamento também devem aparecer no relatório. */
    
-select primeiro_nome, nome_meio, ultimo_nome, f.numero_departamento, nome_projeto
+select concat(f.primeiro_nome, ' ', f.nome_meio, ' ', f.ultimo_nome) nome_funcionario, f.numero_departamento, nome_projeto
 from elmasri.funcionario f
 inner join elmasri.projeto p
 on f.numero_departamento = p.numero_departamento
