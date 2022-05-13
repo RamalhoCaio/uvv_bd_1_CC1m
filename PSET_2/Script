@@ -58,6 +58,9 @@ on f.cpf = d.cpf_funcionario
 
   /* QUESTÃO 07: prepare um relatório que mostre, para cada funcionário que NÃO TEM dependente, seu nome completo, departamento e salário. */
 
+select primeiro_nome, nome_meio, ultimo_nome, numero_departamento departamento, salario
+from elmasri.funcionario
+where exists (select * from elmasri.dependente where funcionario.cpf != dependente.cpf_funcionario);
 
 
   /* QUESTÃO 08: prepare um relatório que mostre, para cada departamento, os projetos desse departamento e o nome completo dos funcionários que estão 
